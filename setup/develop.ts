@@ -117,7 +117,7 @@ const developCommand = async () => {
         }
 
         try {
-            graphqlAstHashes = {}
+            //graphqlAstHashes = {}
             await vite.ssrLoadModule(path.join(__dirname, "/utils/entry-server.ts"))
 
             const { default: graphqlSchemaBuilder } = await vite.ssrLoadModule(path.join(__dirname, "/utils/build-schema.ts"))
