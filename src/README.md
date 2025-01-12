@@ -16,7 +16,7 @@ You will then need to style this new dashboard based on the design [found here](
 
 **This project will run on port `dev:8000`**
 
-This repo is a minimal reproduction of the Gatsby features required for this project, formulated to run on CodeSandbox.
+This repo is a minimal reproduction of the Gatsby features required for this project.
 
 You will be able to create a plugin inside `src/plugin/index.ts`, and the most used APIs from Gatsby's Plugin System are supported.
 
@@ -43,5 +43,5 @@ All other APIs are unsupported.
 ---
 
 - You will have 72 hours to complete this task from the time that we share it with you.
-- Please fork this project on CodeSandbox, complete it, and then email back the forked sandbox link to your completed work. **Please make sure the link is public!**
+- Please fork this project on GitHub, complete it, and then email back the GitHub link for your fork once completed. **Please make sure your fork is public!**
 - The design implementation is important, but the logic implementation is more important. Please compromise on the design if you are running short on time.
