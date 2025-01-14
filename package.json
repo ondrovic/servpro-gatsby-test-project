@@ -1,39 +1,33 @@
 {
-  "name": "servpro-test",
+  "name": "my-gatsby-site",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "description": "my-gatsby-site",
+  "author": "verystack",
+  "keywords": [
+    "gatsby"
+  ],
   "scripts": {
-    "develop": "tsx ./setup/develop.ts"
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "express": "^4.17.21",
-    "graphql": "^16.8.1",
-    "graphql-compose": "^9.0.10",
-    "graphql-http": "^1.22.0",
-    "graphql-tag": "^2.12.6",
-    "js-convert-case": "^4.2.0",
-    "object-hash": "^3.0.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "gatsby": "^5.14.1",
+    "gatsby-plugin-emotion": "^8.14.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.26.0",
-    "@babel/helper-plugin-utils": "^7.24.7",
-    "@babel/plugin-syntax-typescript": "^7.24.7",
-    "@types/express": "^4.17.21",
-    "@types/node": "18.11.19",
-    "@types/react": "^18.2.66",
-    "@types/react-dom": "^18.2.22",
-    "babel-literal-to-ast": "^2.1.0",
-    "babel-plugin-graphql-tag": "^3.3.0",
-    "babel-plugin-syntax-jsx": "^6.18.0",
-    "tsx": "^4.7.2",
-    "typescript": "^4.3.5",
-    "vite": "^5.2.8",
-    "vite-plugin-babel": "^1.2.0",
-    "@emotion/babel-plugin": "^11.13.5",
-    "@emotion/react": "^11.14.0",
-    "@babel/preset-react": "^7.26.3"
+    "@emotion/eslint-plugin": "^11.10.0",
+    "@types/node": "^20.11.19",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "typescript": "^5.3.3"
   }
 }

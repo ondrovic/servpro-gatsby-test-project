@@ -1,3 +1,5 @@
+import React from "react";
+
 const Instructions = () => {
   return (
     <div
@@ -98,40 +100,6 @@ const Instructions = () => {
           marginTop: "24px",
         }}
       >
-        Setup Notes
-      </h1>
-      <hr
-        css={{
-          marginBottom: "24px",
-        }}
-      />
-      <p>
-        <strong>
-          This project will run on port <code>dev:8000</code>
-        </strong>
-      </p>
-      <p>
-        This repo is a minimal reproduction of the Gatsby features required for
-        this project, formulated to run on CodeSandbox.
-      </p>
-      <p>
-        You will be able to create a plugin inside{" "}
-        <code>src/plugin/index.ts</code>, and the most used APIs from Gatsby's
-        Plugin System are supported.
-      </p>
-      <p>
-        On the front-end you will be able to use the <code>useStaticQuery</code>{" "}
-        hook (with the <code>graphql</code> tag) to query for your data.
-      </p>
-      <p>All other APIs are unsupported.</p>
-      <h1
-        css={{
-          fontSize: "24px",
-          fontWeight: "medium",
-          marginBottom: "12px",
-          marginTop: "24px",
-        }}
-      >
         Files
       </h1>
       <hr
@@ -140,12 +108,12 @@ const Instructions = () => {
         }}
       />
       <p>
-        <code>src/plugin/index.ts</code> - This is where you should code your
-        Gatsby Plugin
+        <code>plugins/gatsby-plugin/src/gatsby-node.ts</code> - This is where you should code your
+          Gatsby Plugin. You will need to run <code>yarn run develop</code> to start the Typescript complation.
       </p>
       <p>
-        <code>src/plugin/main.tsx</code> - This is where you should build your
-        dashboard front-end
+        <code>src/pages/index.tsx</code> - This is where you should build your
+        dashboard front-end. Please create additional components and group them inside the components folder as necessary.
       </p>
       <h1
         css={{
@@ -165,7 +133,7 @@ const Instructions = () => {
       <ul>
         <li>
           <code>https://swapi.py4e.com/api/people/</code> - This will provide
-          you with a list of people. Please limit the amount you source to{" "}
+          you with a list of people. Please limit the amount you source to exactly{" "}
           <strong>12</strong>.
         </li>
       </ul>
@@ -190,9 +158,9 @@ const Instructions = () => {
           share it with you.
         </li>
         <li>
-          Please fork this project on CodeSandbox, complete it, and then email
-          back the forked sandbox link to your completed work.{" "}
-          <strong>Please make sure the link is public!</strong>
+          Please publicly fork this project on Github, complete it, and then email
+          back a link to your completed work on your fork.{" "}
+          <strong>Make sure the link is public!</strong>
         </li>
         <li>
           The design implementation is important, but the logic implementation
