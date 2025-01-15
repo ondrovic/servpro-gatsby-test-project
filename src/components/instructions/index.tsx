@@ -28,7 +28,7 @@ const Instructions = () => {
         },
       }}
     >
-      <h1
+      <h2
         css={{
           fontSize: "24px",
           fontWeight: "medium",
@@ -37,7 +37,7 @@ const Instructions = () => {
         }}
       >
         Concept
-      </h1>
+      </h2>
       <hr
         css={{
           marginBottom: "24px",
@@ -92,7 +92,7 @@ const Instructions = () => {
         </a>
         .
       </p>
-      <h1
+      <h2
         css={{
           fontSize: "24px",
           fontWeight: "medium",
@@ -101,21 +101,21 @@ const Instructions = () => {
         }}
       >
         Files
-      </h1>
+      </h2>
       <hr
         css={{
           marginBottom: "24px",
         }}
       />
       <p>
-        <code>plugins/gatsby-plugin/src/gatsby-node.ts</code> - This is where you should code your
-          Gatsby Plugin. You will need to run <code>yarn run develop</code> to start the Typescript complation.
+        <code>plugins/gatsby-star-wars-plugin/src/gatsby-node.ts</code> - This is where you should code your
+        Gatsby Plugin. You will need to run <code>yarn run develop</code> to start the Typescript complation.
       </p>
       <p>
         <code>src/pages/index.tsx</code> - This is where you should build your
         dashboard front-end. Please create additional components and group them inside the components folder as necessary.
       </p>
-      <h1
+      <h2
         css={{
           fontSize: "24px",
           fontWeight: "medium",
@@ -124,7 +124,7 @@ const Instructions = () => {
         }}
       >
         Data Source to Implement
-      </h1>
+      </h2>
       <hr
         css={{
           marginBottom: "24px",
@@ -137,7 +137,7 @@ const Instructions = () => {
           <strong>12</strong>.
         </li>
       </ul>
-      <h1
+      <h2
         css={{
           fontSize: "24px",
           fontWeight: "medium",
@@ -146,7 +146,7 @@ const Instructions = () => {
         }}
       >
         Project Completion notes
-      </h1>
+      </h2>
       <hr
         css={{
           marginBottom: "24px",
@@ -168,6 +168,31 @@ const Instructions = () => {
           short on time.
         </li>
       </ul>
+      <h2
+        css={{
+          fontSize: "24px",
+          fontWeight: "medium",
+          marginBottom: "12px",
+          marginTop: "24px",
+        }}
+      >
+        Example of the final product
+      </h2>
+      <hr
+        css={{
+          marginBottom: "24px",
+        }}
+      />
+      <img
+        css={{
+          borderRadius: '1rem',
+          maxWidth: '1200px',
+          width: "100%",
+          boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+          marginTop: '2rem'
+        }}
+        src={'/example.png'}
+        alt="example" />
     </div>
   );
 };

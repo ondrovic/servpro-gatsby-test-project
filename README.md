@@ -16,7 +16,7 @@ Files
 
 * * *
 
-`plugins/gatsby-plugin/src/gatsby-node.ts` - This is where you should code your Gatsby Plugin. You will need to run `yarn run develop` to start the Typescript complation.
+`plugins/gatsby-star-wars-plugin/src/gatsby-node.ts` - This is where you should code your Gatsby Plugin. You will need to run `yarn run develop` to start the Typescript complation.
 
 `src/pages/index.tsx` - This is where you should build your dashboard front-end. Please create additional components and group them inside the components folder as necessary.
 

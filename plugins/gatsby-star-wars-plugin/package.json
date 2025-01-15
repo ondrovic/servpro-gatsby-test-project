@@ -17,7 +17,7 @@
   },
   "keywords": [
     "gatsby",
-    "gatsby-plugin"
+    "gatsby-star-wars-plugin"
   ],
   "engines": {
     "node": ">=18.0.0"
