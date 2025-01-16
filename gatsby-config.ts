@@ -10,8 +10,8 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-      "gatsby-plugin-emotion",
-      "gatsby-plugin"
+    "gatsby-plugin-emotion",
+    "gatsby-star-wars-plugin",
   ]
 };
 
