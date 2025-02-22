@@ -16,7 +16,7 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-star-wars-plugin',
       options: {
-        apiUrl: process.env.API_URL
+        apiUrl: process.env.GATSBY_API_URL
       }
     }
   ]

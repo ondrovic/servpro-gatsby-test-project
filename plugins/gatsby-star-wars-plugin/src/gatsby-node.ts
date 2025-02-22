@@ -1,47 +1,55 @@
-import { APIResponse } from "./types/api-response"
-import { Character } from "./types/character";
-import { GatsbyNode, SourceNodesArgs, PluginCallback } from "gatsby";
-import { PluginOptions } from "./types/plugin-options";
+import type { GatsbyNode, PluginCallback, SourceNodesArgs } from "gatsby";
 
+import {
+    characterResolvers,
+    filmResolvers,
+    planetResolvers,
+    queryResolvers,
+    speciesResolvers,
+    starshipResolvers,
+    vehicleResolvers
+} from "./resolvers";
+
+import { typeDefs } from "./schema/type-defs";
+import type { PluginOptions } from "./types/plugin-options";
+
+/**
+ * Customize the GraphQL schema by adding custom type definitions.
+ * 
+ * @param {Object} param0 - The arguments object.
+ * @param {Object} param0.actions - Gatsby actions.
+ */
 export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = ({ actions }) => {
     const { createTypes } = actions;
-
-    const typeDefs = `
-        type Character implements Node {
-            id: ID!
-            birth_year: String
-            created: String
-            edited: String
-            eye_color: String
-            films: [String]
-            gender: String
-            hair_color: String
-            height: String
-            homeworld: String
-            mass: String
-            name: String!
-            skin_color: String
-            species: [String]
-            starships: [String]
-            url: String
-            vehicles: [String]
-        }
-
-        type Query {
-            allCharacter(limit: Int): CharacterConnection!
-            character(id: ID!): Character
-        }
-
-        type CharacterConnection {
-            nodes: [Character!]!
-        }
-    `;
-
-    createTypes(typeDefs);
+    createTypes(typeDefs)
 };
 
-export const sourceNodes: GatsbyNode['sourceNodes'] = async ({ actions, createNodeId, createContentDigest }: SourceNodesArgs, options: PluginOptions, callback: PluginCallback) => {
-    const { createNode } = actions;
+/**
+ * Create custom resolvers for the GraphQL schema.
+ * 
+ * @param {Object} param0 - The arguments object.
+ * @param {Function} param0.createResolvers - Function to create resolvers.
+ */
+export const createResolvers: GatsbyNode['createResolvers'] = ({ createResolvers }) => {
+    createResolvers({
+        ...queryResolvers,
+        Character: characterResolvers,
+        Film: filmResolvers,
+        Starship: starshipResolvers,
+        Vehicle: vehicleResolvers,
+        Species: speciesResolvers,
+        Planet: planetResolvers,
+    });
+};
+
+/**
+ * Source nodes from the Star Wars API.
+ * 
+ * @param {Object} param0 - The arguments object.
+ * @param {PluginOptions} options - Plugin options.
+ * @param {PluginCallback} callback - Callback function.
+ */
+export const sourceNodes: GatsbyNode['sourceNodes'] = async ({ }: SourceNodesArgs, options: PluginOptions, callback: PluginCallback) => {
     const { apiUrl } = options as PluginOptions;
 
     if (!apiUrl) {
@@ -50,72 +58,21 @@ export const sourceNodes: GatsbyNode['sourceNodes'] = async ({ actions, createNo
     }
 
     try {
-        let currentUrl: string | null = apiUrl;
-        let allCharacters: Character[] = [];
-
-        // Fetch all available characters
-        while (currentUrl) {
-            const response = await fetch(currentUrl);
-            if (!response.ok) {
-                throw new Error(`API response was not ok: ${response.status}`);
-            }
-
-            const data: APIResponse = await response.json();
-            allCharacters = [...allCharacters, ...data.results];
-
-            // Get the next page URL
-            currentUrl = data.next;
-        }
-
-        // Create nodes for all characters
-        allCharacters.forEach((character) => {
-            const nodeId = createNodeId(`character-${character.name}`);
-
-            createNode({
-                ...character,
-                id: nodeId,
-                parent: null,
-                children: [],
-                internal: {
-                    type: 'Character',
-                    content: JSON.stringify(character),
-                    contentDigest: createContentDigest(character)
-                }
-            });
-        });
-
+        // Note: Moved to on demand so no longer pre-fetching
         callback(null);
     } catch (error) {
-        const errorToReport = error instanceof Error
-            ? error
-            : new Error(typeof error === 'string' ? error : JSON.stringify(error));
-        callback(errorToReport);
+        console.error('Error during source nodes:', error);
+        callback(error instanceof Error ? error : new Error(String(error)));
     }
 };
 
-export const createResolvers: GatsbyNode['createResolvers'] = ({ createResolvers }) => {
-    const resolvers = {
-        Query: {
-            allCharacter: {
-                resolve: async (source: any, args: { limit?: number }, context: any, info: any) => {
-                    const { limit } = args;
-                    const { entries } = await context.nodeModel.findAll({
-                        type: 'Character',
-                    });
-
-                    const nodes = limit ? Array.from(entries).slice(0, limit) : Array.from(entries);
-
-                    return {
-                        nodes,
-                    };
-                },
-            },
-        },
-    };
-
-    createResolvers(resolvers);
-};
-
+/**
+ * Define the schema for plugin options.
+ * 
+ * @param {Object} param0 - The arguments object.
+ * @param {Object} param0.Joi - Joi schema validation library.
+ * @returns {Object} Joi schema object.
+ */
 export const pluginOptionsSchema: GatsbyNode['pluginOptionsSchema'] = ({ Joi }) => {
     return Joi.object({
         apiUrl: Joi.string()

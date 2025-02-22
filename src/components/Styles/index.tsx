@@ -3,9 +3,11 @@ import { css } from "@emotion/react";
 export const dashboardStyles = {
   container: css`
     padding: 1rem;
-    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
     transition: background-color 0.3s ease;
   `,
 
@@ -20,18 +22,20 @@ export const dashboardStyles = {
     font-size: 1.1rem;
     font-weight: 300;
     color: #111827;
-    background: linear-gradient(to right, #FFFFFF, #f8f8f8);
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+    background: linear-gradient(to right, #ffffff, #f8f8f8);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
     padding: 1.5rem;
+    justify-content: center;
   `,
 
   grid: css`
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    height: 600px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.25rem;
     padding-right: 1rem;
+    min-height: min-content;
+    height: auto;
 
     @media (max-width: 768px) {
       grid-template-columns: 1fr;
@@ -44,6 +48,7 @@ export const dashboardStyles = {
 
   scroll: css`
     overflow-y: auto;
+    height: auto;
     &::-webkit-scrollbar {
       width: 8px;
     }
@@ -78,22 +83,30 @@ export const dashboardStyles = {
     margin-bottom: 0.5rem;
   `,
 
-  // NOTE: I reduced the gap here to make it all fit in a single view
   infoGrid: css`
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 0.15rem;
+    gap: 0.1rem;
     align-items: center;
   `,
 
   label: css`
     color: #4b5563;
     font-weight: 500;
+    white-space: nowrap;
+  `,
+
+  labelNested: css`
+    color: #4b5563;
+    font-weight: 500;
+    white-space: nowrap;
+    padding-left: 1.5rem;
   `,
 
   value: css`
     color: #22c55e;
     text-align: right;
     text-transform: capitalize;
+    padding-left: 1rem;
   `,
 };

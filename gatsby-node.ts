@@ -13,6 +13,3 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ act
     }
   });
 };
-
-// Star Wars Plugin
-// export { createSchemaCustomization, sourceNodes } from './plugins/gatsby-star-wars-plugin/src/gatsby-node';
