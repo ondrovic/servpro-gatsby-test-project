@@ -1,10 +1,7 @@
-import React from "react";
 import "../reset.css"
-import Instructions from "../components/instructions";
-
+import Dashboard from "../components/Dashboard"
 const Index = () => {
-  // Add your code here
-  return <Instructions />;
+  return <Dashboard />;
 };
 
 export default Index;

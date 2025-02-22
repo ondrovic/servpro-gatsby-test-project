@@ -4,3 +4,5 @@ public
 src/gatsby-types.d.ts
 plugins/gatsby-star-wars-plugin/dist/
 .idea
+.vscode/
+.yarn/

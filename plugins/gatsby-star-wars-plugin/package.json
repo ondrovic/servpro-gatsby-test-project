@@ -1,6 +1,6 @@
 {
-  "name": "plugin",
-  "description": "An example Gatsby source plugin",
+  "name": "gatsby-star-wars-plugin",
+  "description": "Plugin to pull characters from the Star Wars API",
   "version": "0.1.0",
   "license": "MIT",
   "main": "./dist/gatsby-node.js",

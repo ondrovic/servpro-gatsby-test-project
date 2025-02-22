@@ -1,5 +1,7 @@
 import type { GatsbyConfig } from "gatsby";
 
+require('dotenv').config();
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `My Gatsby Site`,
@@ -11,7 +13,12 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-emotion",
-    "gatsby-star-wars-plugin",
+    {
+      resolve: 'gatsby-star-wars-plugin',
+      options: {
+        apiUrl: process.env.API_URL
+      }
+    }
   ]
 };
 
